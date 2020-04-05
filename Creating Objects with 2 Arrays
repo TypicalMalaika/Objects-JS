@@ -1,0 +1,30 @@
+var group = {
+    A: 20, 
+    B: 15, 
+    C: 10
+}
+
+function splitTheBill(group) {
+  var values = Object.values(group)
+  var sumValues = 0
+
+  for (let i = 0; i < values.length; i++){
+    sumValues += values[i]
+  }
+  
+  var mult = (sumValues/values.length)
+  const priceOwed = values.map(item => item - mult)
+  var keys = Object.keys(group)
+
+  const result = {}
+
+  keys.forEach((key, i) => result[key] = priceOwed[i]);
+
+  return result
+
+}
+
+
+// FOR TESTING
+//splitTheBill({A: 20, B: 15, C: 10})//{A: 5, B: 0, C: -5});
+//splitTheBill({A: 40, B: 25, X: 10})//{A: 15, B: 0, X: -15});
